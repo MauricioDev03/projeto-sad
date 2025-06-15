@@ -1,0 +1,4 @@
+city,forecast_date,temperature,humidity,weather_description
+New York,2023-01-01,5.2,65,Cloudy
+Berlin,2023-01-02,1.8,78,Rain
+Lisbon,2023-01-03,12.3,58,Sunny
