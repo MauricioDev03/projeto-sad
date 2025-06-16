@@ -1,14 +1,14 @@
 library(tidyverse)
 library(lubridate)
 
-# 1. Gerar a sequência de datas e horas para 1 ano completo
+# Gerar a sequência de datas e horas para 1 ano completo
 datas_horas <- expand.grid(
   date = seq.Date(ymd("2023-01-01"), ymd("2023-12-31"), by = "day"),
   hour = 0:23
 ) %>%
   arrange(date, hour)
 
-# 2. Gerar variáveis sazonais com base no mês
+# Gerar variáveis sazonais com base no mês
 datas_horas <- datas_horas %>%
   mutate(
     month = month(date),
@@ -20,7 +20,7 @@ datas_horas <- datas_horas %>%
     )
   )
 
-# 3. Simular variáveis meteorológicas com padrões sazonais
+# Simular variáveis meteorológicas com padrões sazonais
 set.seed(123)
 
 seoul_simulado <- datas_horas %>%
@@ -51,7 +51,7 @@ seoul_simulado <- datas_horas %>%
   select(date, hour, temperature, humidity, wind_speed, rainfall, snowfall,
          rented_bike_count, seasons, holiday, functioning_day)
 
-# 4. Guardar como CSV
+# Guardar como CSV
 write_csv(seoul_simulado, "seoul_bike_simulated.csv")
 
-# Pronto! Já podes usá-lo como dataset principal para modelação
+
